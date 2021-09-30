@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts/admin/login');
 });
+Route::post('login','App\Http\Controllers\LoginController@login');
+
+Route::get('/getevent', 'App\Http\Controllers\FullCalendarController@getEvent');
+Route::post('/createevent','App\Http\Controllers\FullCalendarController@createEvent');
+Route::post('/delete','App\Http\Controllers\FullCalendarController@deleteEvent');
